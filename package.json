@@ -28,11 +28,13 @@
     "rules": {
       "max-lines": "error",
       "import/no-extraneous-dependencies": 0,
-      "import/extensions": 0
+      "import/extensions": 0,
+      "new-cap": 0
     }
   },
   "dependencies": {
     "babel-runtime": "^6.20.0",
+    "ethapi-js": "^0.4.2",
     "meteor-node-stubs": "~0.2.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
