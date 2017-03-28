@@ -37,7 +37,8 @@
     "ethapi-js": "^0.4.2",
     "meteor-node-stubs": "~0.2.4",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "web3": "^0.18.2"
   },
   "devDependencies": {
     "eslint": "^3.18.0",
