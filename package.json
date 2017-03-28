@@ -1,0 +1,49 @@
+{
+  "name": "melonchallenge",
+  "private": true,
+  "version": "0.0.1",
+  "author": "Simon Emanuel Schmid <simon@schmid.io> (http://schmid.io/)",
+  "scripts": {
+    "start": "meteor run",
+    "lint": "eslint ."
+  },
+  "eslintConfig": {
+    "env": {
+      "shared-node-browser": true,
+      "browser": true
+    },
+    "parserOptions": {
+      "allowImportExportEverywhere": true
+    },
+    "plugins": [
+      "meteor"
+    ],
+    "extends": [
+      "airbnb",
+      "plugin:react/recommended"
+    ],
+    "settings": {
+      "import/resolver": "meteor"
+    },
+    "rules": {
+      "max-lines": "error",
+      "import/no-extraneous-dependencies": 0,
+      "import/extensions": 0
+    }
+  },
+  "dependencies": {
+    "babel-runtime": "^6.20.0",
+    "meteor-node-stubs": "~0.2.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-import-resolver-meteor": "^0.3.4",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-meteor": "^4.0.1",
+    "eslint-plugin-react": "^6.10.3"
+  }
+}
