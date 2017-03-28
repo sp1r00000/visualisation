@@ -1,3 +1,4 @@
+/* eslint-disable */
 import EthApi from 'ethapi-js';
 
 import Web3 from 'web3';
