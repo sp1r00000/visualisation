@@ -43,6 +43,7 @@
     "meteor-node-stubs": "~0.2.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "victory": "^0.18.3",
     "web3": "^0.18.2"
   },
   "devDependencies": {
