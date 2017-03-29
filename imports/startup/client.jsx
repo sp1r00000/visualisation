@@ -1,10 +1,19 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-import Chart from '../components/Chart.jsx';
+import Chart from '../containers/Chart.jsx';
+import { reducer } from '../actions/Chart.js';
 
+
+const store = createStore(reducer);
 
 Meteor.startup(() => {
-  render(<Chart />, document.getElementById('react-root'));
+  render(
+    <Provider store={store}>
+      <Chart />
+    </Provider>,
+    document.getElementById('react-root'));
 });
