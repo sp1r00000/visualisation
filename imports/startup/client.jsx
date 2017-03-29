@@ -5,10 +5,16 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 import Chart from '../containers/Chart.jsx';
-import { reducer } from '../actions/Chart.js';
+import { reducer, actionCreators } from '../actions/Chart.js';
 
+import getEvents from '../utils/getEvents.js';
 
-const store = createStore(reducer);
+/* eslint-disable no-underscore-dangle */
+const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+);
+/* eslint-enable */
 
 Meteor.startup(() => {
   render(
@@ -16,4 +22,6 @@ Meteor.startup(() => {
       <Chart />
     </Provider>,
     document.getElementById('react-root'));
+
+  getEvents((err, priceList) => store.dispatch(actionCreators.loadPriceList(priceList)));
 });
