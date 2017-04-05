@@ -13,5 +13,7 @@ Live: https://melonchallenge.now.sh
 [x] Test driven with Mocha/Chai
 [x] Redux state management
 [x] Deployed with zeit.co now
+[x] No server-side code. That said, it makes not a lot of sense to use Meteor without server side code.
+[ ] Filter results from contract
 [ ] Adjust to Melonport CI
 
