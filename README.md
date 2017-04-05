@@ -8,15 +8,16 @@ Live: https://melonchallenge.now.sh
 
 
 ## Noteworthy features of this solution
-[x] Based on Meteor/React
-[x] Code quality assured through [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)
-[x] Test driven with Mocha/Chai
-[x] Redux state management
-[x] Deployed with zeit.co now
-[x] No server-side code
-[x] Filter results from contract
-[x] Adjust to Melonport CI
-[ ] Deploy client side only build to IPFS.io with [meteor-build-client](https://github.com/frozeman/meteor-build-client)
+
+- [x] Based on Meteor/React
+- [x] Code quality assured through [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)
+- [x] Test driven with Mocha/Chai
+- [x] Redux state management
+- [x] Deployed with zeit.co now
+- [x] No server-side code
+- [x] Filter results from contract
+- [x] Adjust to Melonport CI
+- [ ] Deploy client side only build to IPFS.io with [meteor-build-client](https://github.com/frozeman/meteor-build-client)
 
 ## Notes on server-side code
 It does not make a lot of sense to use Meteor without server side code, except for the build system,
