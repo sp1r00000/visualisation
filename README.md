@@ -13,7 +13,11 @@ Live: https://melonchallenge.now.sh
 [x] Test driven with Mocha/Chai
 [x] Redux state management
 [x] Deployed with zeit.co now
-[x] No server-side code. That said, it makes not a lot of sense to use Meteor without server side code.
+[x] No server-side code
 [ ] Filter results from contract
 [ ] Adjust to Melonport CI
 
+## Notes on server-side code
+It does not make a lot of sense to use Meteor without server side code, except for the build system,
+which is not the best. If we really want to deploy this piece of software to IPFS, we need to refactor
+it into a frontend only solution with a Webpack-build system or something. But I can do that, no worries ;).
