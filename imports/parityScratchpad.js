@@ -11,8 +11,8 @@ const abi = [{
   type: 'event',
   inputs: [
     { type: 'address', name: 'ofAsset', indexed: true },
-    { type: 'uint', name: 'atTimestamp' },
-    { type: 'uint', name: 'ofPrice' },
+    { type: 'uint256', name: 'atTimestamp' },
+    { type: 'uint256', name: 'ofPrice' },
   ],
   /*outputs: [
     { type: 'uint', name: 'atTimestamp' },

@@ -11,11 +11,12 @@ const web3 = new Web3(new Web3.providers.HttpProvider('https://kovan.melonport.c
 */
 export default (
   callback,
-  address = '0x7a8e350a22deeedb8aaafc206998fac7e673b33b',
+  address = '0xC5df162BD06D7D6bD63Dac5bEeED49658D05A1AC',
 ) => web3.eth.filter({
   address,
   fromBlock: 0,
   toBlock: 'latest',
+  topics: [web3.sha3('PriceUpdated(address,uint256,uint256)')],
 }).get((err, result) => {
   callback(err, result.map(r => parsePriceUpdated(r.data)));
 });
