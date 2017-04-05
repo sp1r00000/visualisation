@@ -10,7 +10,19 @@ const Chart = props => (
       style={{ width: 100, marginRight: 20 }}
       src="https://github.com/melonproject/branding/raw/master/Melonport%20logo%20print%20white%20on%20blue%202.png"
     />
-    <select onChange={props.onChangeAssetType}>
+    <select
+      onChange={props.onChangeAssetType}
+      style={{
+        border: '1px solid #fff',
+        padding: '6px 12px',
+        borderRadius: 4,
+        lineHeight: 1.42857,
+        backgroundColor: 'rgba(255,255,255,0.1)',
+        color: 'white',
+        fontSize: 20,
+        verticalAlign: 'top',
+      }}
+    >
       {Object.keys(assetTypes).map(type =>
         <option key={type} value={type} checked={type === props.currentAsset} >{type}</option>)
       }
