@@ -2,19 +2,37 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 
 import Chart from '../containers/Chart.jsx';
-import { reducer, actionCreators } from '../actions/Chart.js';
+import { reducer, actions, actionCreators } from '../actions/Chart.js';
 
 import watchEvents from '../utils/watchEvents.js';
 
-/* eslint-disable no-underscore-dangle */
+
+const watchMiddleware = store => next => (action) => {
+  switch (action.type) {
+    case actions.SELECT_ASSET:
+      watchEvents(
+        (err, priceEntry) => store.dispatch(actionCreators.addPriceEntry(priceEntry)),
+        store.getState().currentAsset,
+      );
+      break;
+    default:
+  }
+
+  return next(action);
+};
+
 const store = createStore(
   reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+  compose(
+    applyMiddleware(watchMiddleware),
+/* eslint-disable no-underscore-dangle */
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 /* eslint-enable */
+  ),
+);
 
 Meteor.startup(() => {
   render(
@@ -23,5 +41,5 @@ Meteor.startup(() => {
     </Provider>,
     document.getElementById('react-root'));
 
-  watchEvents((err, priceEntry) => store.dispatch(actionCreators.addPriceEntry(priceEntry)));
+  store.dispatch(actionCreators.selectAsset('EuroToken'));
 });

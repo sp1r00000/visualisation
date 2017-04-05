@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import Chart from '../components/Chart.jsx';
+import { actionCreators } from '../actions/Chart.js';
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -8,7 +9,11 @@ const mapStateToProps = (state, ownProps) => ({
   ...ownProps,
 });
 
-const ChartConnected = connect(mapStateToProps)(Chart);
+const mapDispatchToProps = dispatch => ({
+  onChangeAssetType: event => dispatch(actionCreators.selectAsset(event.target.value)),
+});
+
+const ChartConnected = connect(mapStateToProps, mapDispatchToProps)(Chart);
 
 
 export default ChartConnected;
