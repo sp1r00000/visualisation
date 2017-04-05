@@ -24,10 +24,10 @@ export const abi = [{
 
 const PriceFeedContract = web3.eth.contract(abi);
 
-export default (callback) => {
+export default (callback, assetType = 'EuroToken') => {
   const oraclizeInstance = PriceFeedContract.at(contractAddress);
   const priceUpdatedFeed = oraclizeInstance.PriceUpdated(
-    { ofAsset: assetTypes.BitcoinToken },
+    { ofAsset: assetTypes[assetType] },
     { fromBlock: 0, toBlock: 'latest' },
   );
 
