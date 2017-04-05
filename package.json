@@ -7,7 +7,8 @@
     "start": "meteor run",
     "lint": "eslint .",
     "test": "npm run lint && mocha --compilers js:babel-core/register ./imports/**/*.test.js",
-    "deploy": "meteor-now"
+    "deploy": "meteor-now",
+    "build": "meteor-build-client ./dist"
   },
   "babel": {
     "presets": [
@@ -60,6 +61,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-meteor": "^4.0.1",
     "eslint-plugin-react": "^6.10.3",
+    "meteor-build-client": "^0.4.1",
     "meteor-now": "^0.2.2",
     "mocha": "^3.2.0"
   }

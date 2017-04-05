@@ -5,3 +5,6 @@ npm-debug.log*
 
 # Dependency
 node_modules/
+
+# Compiled client build
+dist/
