@@ -16,6 +16,7 @@ Live: https://melonchallenge.now.sh
 [x] No server-side code
 [ ] Filter results from contract
 [ ] Adjust to Melonport CI
+[ ] Use https://github.com/frozeman/meteor-build-client
 
 ## Notes on server-side code
 It does not make a lot of sense to use Meteor without server side code, except for the build system,
