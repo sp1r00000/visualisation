@@ -9,8 +9,8 @@ export const abi = [{
   type: 'event',
   inputs: [
     { type: 'address', name: 'ofAsset', indexed: true },
-    { type: 'uint256', name: 'atTimestamp' },
-    { type: 'uint256', name: 'ofPrice' },
+    { type: 'uint256', name: 'atTimestamp', indexed: false },
+    { type: 'uint256', name: 'ofPrice', indexed: false },
   ],
 }];
 
@@ -21,7 +21,9 @@ const priceUpdatedFeed = oraclizeInstance.PriceUpdated({
 }, { fromBlock: 0, toBlock: 'latest' });
 
 priceUpdatedFeed.get((err, log) => {
-  // console.log(err, log.slice(1, 10));
+  /*
+    Debug info: This just returns atTimestamp and ofPrice as undefined. I don't know why;
+  */
   console.log(
     log.slice(1, 10).map(e => e.args),
   );
