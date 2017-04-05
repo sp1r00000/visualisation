@@ -21,8 +21,10 @@ const priceUpdatedFeed = oraclizeInstance.PriceUpdated({
 }, { fromBlock: 0, toBlock: 'latest' });
 
 priceUpdatedFeed.get((err, log) => {
-  console.log(err, log.slice(1, 10));
-  console.log();
+  // console.log(err, log.slice(1, 10));
+  console.log(
+    log.slice(1, 10).map(e => e.args),
+  );
 });
 
 /*
@@ -44,6 +46,8 @@ https://kovan.etherscan.io/address/0x4dffea52b0b4b48c71385ae25de41ce6ad0dd5a7#co
   http://ethereum.stackexchange.com/questions/1381/how-do-i-parse-the-transaction-receipt-log-with-web3-js?lq=1
   http://ethereum.stackexchange.com/questions/2024/how-to-access-event-log-by-knowing-the-contract-address-web3
 */
+console.log(web3.sha3('PriceUpdated(address,uint256,uint256)'));
+
 export default (
   callback,
   address = '0xC5df162BD06D7D6bD63Dac5bEeED49658D05A1AC',
@@ -51,7 +55,11 @@ export default (
   address,
   fromBlock: 0,
   toBlock: 'latest',
-  topics: [web3.sha3('PriceUpdated(address,uint256,uint256)')],
+  topics: [
+    web3.sha3('PriceUpdated(address,uint256,uint256)'),
+    '0x000000000000000000000000c151b622fded233111155ec273bfaf2882f13703',
+  ],
 }).get((err, result) => {
+  console.log(result.slice(0, 10).map(e => e.topics[1]));
   callback(err, result.map(r => parsePriceUpdated(r.data)));
 });
