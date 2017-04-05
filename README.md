@@ -14,9 +14,9 @@ Live: https://melonchallenge.now.sh
 [x] Redux state management
 [x] Deployed with zeit.co now
 [x] No server-side code
-[ ] Filter results from contract
-[ ] Adjust to Melonport CI
-[ ] Use https://github.com/frozeman/meteor-build-client
+[x] Filter results from contract
+[x] Adjust to Melonport CI
+[ ] Deploy client side only build to IPFS.io with [meteor-build-client](https://github.com/frozeman/meteor-build-client)
 
 ## Notes on server-side code
 It does not make a lot of sense to use Meteor without server side code, except for the build system,

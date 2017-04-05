@@ -31,10 +31,8 @@ export default (callback, assetType = 'EuroToken') => {
     { fromBlock: 0, toBlock: 'latest' },
   );
 
-  priceUpdatedFeed.get((err, events) =>
-    callback(err, events.map(event => ({
-      atTimestamp: new Date(event.args.atTimestamp.toNumber() * 1000),
-      ofPrice: event.args.ofPrice.toNumber(),
-    }))),
-  );
+  priceUpdatedFeed.watch((err, event) => callback(err, {
+    atTimestamp: new Date(event.args.atTimestamp.toNumber() * 1000),
+    ofPrice: event.args.ofPrice.toNumber(),
+  }));
 };

@@ -3,13 +3,13 @@ export const initialState = {
 };
 
 export const actions = {
-  LOAD_PRICE_LIST: 'melonchallenge/LOAD_PRICE_LIST',
+  ADD_PRICE_ENTRY: 'melonchallenge/ADD_PRICE_ENTRY',
 };
 
 export const actionCreators = {
-  loadPriceList: priceList => ({
-    type: actions.LOAD_PRICE_LIST,
-    priceList,
+  addPriceEntry: priceEntry => ({
+    type: actions.ADD_PRICE_ENTRY,
+    priceEntry,
   }),
 };
 
@@ -17,10 +17,13 @@ export const reducer = (state = initialState, action) => {
   const { type, ...params } = action;
 
   switch (type) {
-    case actions.LOAD_PRICE_LIST:
+    case actions.ADD_PRICE_ENTRY: {
+      const priceList = state.priceList.slice(0);
+      priceList.push(params.priceEntry);
       return {
-        priceList: params.priceList,
+        priceList,
       };
+    }
     default:
       return state;
   }

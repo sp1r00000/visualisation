@@ -7,7 +7,7 @@ import { createStore } from 'redux';
 import Chart from '../containers/Chart.jsx';
 import { reducer, actionCreators } from '../actions/Chart.js';
 
-import getEvents from '../utils/getEvents.js';
+import watchEvents from '../utils/watchEvents.js';
 
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
@@ -23,5 +23,5 @@ Meteor.startup(() => {
     </Provider>,
     document.getElementById('react-root'));
 
-  getEvents((err, priceList) => store.dispatch(actionCreators.loadPriceList(priceList)));
+  watchEvents((err, priceEntry) => store.dispatch(actionCreators.addPriceEntry(priceEntry)));
 });
